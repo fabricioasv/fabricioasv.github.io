@@ -40,6 +40,8 @@
                 return;
             }
 
+            console.log(fileInput.files);
+
             try {
                 const file = fileInput.files[0];
                 const reader = new FileReader();
@@ -73,7 +75,7 @@
                         const url = window.URL.createObjectURL(blob);
                         const a = document.createElement("a");
                         a.href = url;
-                        a.download = "output.xlsx";
+                        a.download = file.name.replace("pdf", "xlsx");
                         document.body.appendChild(a);
                         a.click();
                         a.remove();
