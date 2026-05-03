@@ -1,39 +1,198 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fabrício Alves — Software Engineering</title>
+  <title>Fabricio Alves | Software Engineering</title>
   <style>
-    :root { --bg:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#94a3b8; --accent:#22d3ee; }
-    * { box-sizing: border-box; }
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --card: rgba(15, 23, 42, 0.84);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+      --line: rgba(148, 163, 184, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-      background: linear-gradient(180deg, var(--bg), #0b1020);
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(34, 211, 238, 0.14), transparent 32%),
+        linear-gradient(180deg, var(--bg), #08101f 72%);
       color: var(--text);
     }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 48px 20px 64px; }
-    header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
     .avatar {
-      width: 72px; height: 72px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #22d3ee55, transparent 60%), #1f2937;
-      border: 1px solid #1f3b4d;
+      width: 80px;
+      height: 80px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(34, 211, 238, 0.34), transparent 60%),
+        #162033;
+      border: 1px solid rgba(34, 211, 238, 0.24);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
     }
-    h1 { font-size: 2rem; margin: 0; line-height: 1.2; }
-    h2 { font-size: 1.25rem; margin: 24px 0 10px; }
-    p { margin: 10px 0; color: var(--text); }
-    .muted { color: var(--muted); }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.05;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.15rem;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
     .card {
-      background: linear-gradient(180deg, #0b1220, var(--card));
-      border: 1px solid #1f2937; border-radius: 12px; padding: 18px; margin: 14px 0;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0.94), var(--card));
+      backdrop-filter: blur(8px);
     }
-    ul { list-style: none; padding: 0; margin: 0; }
-    li { padding: 10px 0; border-top: 1px solid #1f2937; }
-    li:first-child { border-top: 0; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
-    .tag { font-size: 12px; color: var(--muted); border: 1px solid #1f2937; padding: 4px 8px; border-radius: 999px; }
-    footer { margin-top: 32px; font-size: 14px; color: var(--muted); }
+
+    .project {
+      display: grid;
+      gap: 14px;
+    }
+
+    .project-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .project strong {
+      font-size: 1.05rem;
+    }
+
+    .badge {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.12);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      color: var(--accent);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .project-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 16px;
+    }
+
+    .subcard {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(8, 16, 31, 0.36);
+    }
+
+    .subcard h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+    }
+
+    .feature-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .feature-list li + li {
+      margin-top: 8px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .tag {
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer {
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding-top: 32px;
+      }
+
+      header {
+        grid-template-columns: 1fr;
+      }
+
+      .project-layout {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -41,44 +200,88 @@
     <header>
       <div class="avatar" aria-hidden="true"></div>
       <div>
-        <h1>Fabrício Alves</h1>
+        <h1>Fabricio Alves</h1>
         <p class="muted">Software Engineering • Belo Horizonte, MG</p>
       </div>
     </header>
 
-    <section class="card" aria-labelledby="sobre">
-      <h2 id="sobre">Apresentação</h2>
+    <section class="card">
+      <h2>Apresentacao</h2>
       <p>
-        Engenheiro de software focado em construir produtos simples, performáticos e fáceis de manter.
-        Interessa-me especialmente arquitetura limpa, APIs bem desenhadas e experiências agradáveis no frontend.
+        Engenheiro de software focado em construir produtos simples, performaticos e faceis de manter.
+        Trabalho com arquitetura de software, desenvolvimento full stack e interfaces orientadas a clareza.
       </p>
     </section>
 
-    <section class="card" aria-labelledby="skills">
-      <h2 id="skills">Competências</h2>
-      <div class="tags">
-        <span class="tag">Arquitetura de Software</span>
-        <span class="tag">Clean Code</span>
-        <span class="tag">TypeScript</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">React</span>
-        <span class="tag">SQL/NoSQL</span>
-        <span class="tag">CI/CD</span>
-        <span class="tag">Cloud</span>
+    <section class="card">
+      <h2>Projetos</h2>
+      <div class="project">
+        <div class="project-header">
+          <strong>Album da Copa</strong>
+          <span class="badge">Voryn • Android Nativo</span>
+        </div>
+        <p class="muted">
+          O Album da Copa e um aplicativo Android criado para ajudar colecionadores a controlar o preenchimento do album de figurinhas da Copa do Mundo 2026.
+          O foco do MVP e resolver a organizacao da colecao no dia a dia, permitindo marcar figurinhas, acompanhar repetidas e visualizar o progresso geral de forma simples e offline.
+        </p>
+        <div class="project-layout">
+          <div class="subcard">
+            <h3>Principais recursos</h3>
+            <ul class="feature-list">
+              <li>Marcar figurinhas ja possuidas</li>
+              <li>Controlar figurinhas repetidas</li>
+              <li>Acompanhar o progresso geral do album</li>
+              <li>Buscar figurinhas por numero</li>
+              <li>Organizar a visualizacao por selecao</li>
+            </ul>
+          </div>
+          <div class="subcard">
+            <h3>Base tecnica</h3>
+            <p class="muted">
+              MVP offline, sem login e sem backend, com persistencia local no celular via Room/SQLite.
+              A implementacao utiliza Kotlin, Jetpack Compose e arquitetura MVVM com ViewModel e StateFlow, alem de Firebase Analytics para acompanhamento de uso.
+            </p>
+          </div>
+        </div>
+        <div class="subcard">
+          <h3>Politica de privacidade</h3>
+          <p class="muted">
+            O aplicativo armazena localmente no dispositivo os dados relacionados ao controle da colecao, como figurinhas marcadas, repetidas e progresso do album.
+            O MVP nao exige conta, nao possui backend e nao envia esses dados de colecao para servidores externos.
+          </p>
+          <p class="muted" style="margin-top: 12px;">
+            O app utiliza Firebase Analytics para coleta agregada de eventos de uso com objetivo de entender a utilizacao do produto e orientar melhorias.
+            Caso a estrutura do aplicativo mude no futuro, esta politica podera ser atualizada.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="card" aria-labelledby="contato">
-      <h2 id="contato">Contato</h2>
-      <p>
-        <a href="mailto:fabricioasv@gmail.com">fabricioasv@gmail.com</a> ·
+    <section class="card">
+      <h2>Competencias</h2>
+      <div class="tags">
+        <span class="tag">Arquitetura de Software</span>
+        <span class="tag">Kotlin</span>
+        <span class="tag">Android Nativo</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">React</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">SQL</span>
+        <span class="tag">CI/CD</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Contato</h2>
+      <div class="contact">
+        <a href="mailto:fabricioasv@gmail.com">fabricioasv@gmail.com</a>
         <a href="https://linkedin.com/in/fabricioasv">LinkedIn</a>
         <a href="https://github.com/fabricioasv">GitHub</a>
-      </p>
+      </div>
     </section>
 
     <footer>
-      © 2026 — Feito com cuidado e pragmatismo.
+      © 2026 • Feito com cuidado e pragmatismo.
     </footer>
   </main>
 </body>
